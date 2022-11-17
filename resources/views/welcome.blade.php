@@ -27,7 +27,7 @@
                                         <td>{{ $item->paterno }}</td>
                                         <td>{{ $item->materno }}</td>
                                         <td>
-                                            <a href="" class="btn btn-warning">Editar</a>
+                                            <a href="{{ route('personas.edit', $item->id)}}" class="btn btn-warning">Editar</a>
                                         </td>
                                         <td>
                                             <form action="{{ route('personas.destroy', $item->id) }}" method="POST">

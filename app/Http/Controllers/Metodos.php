@@ -50,7 +50,7 @@ class Metodos extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -61,7 +61,9 @@ class Metodos extends Controller
      */
     public function edit($id)
     {
-        //
+        $titulo = 'Editar Persona';
+        $item = Categoria::find($id);
+        return view('editar', compact('titulo','item'));
     }
 
     /**
@@ -73,7 +75,12 @@ class Metodos extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $persona = Categoria::find($id);
+        $persona -> nombre = $request -> nombre;
+        $persona -> paterno = $request -> paterno;
+        $persona -> materno = $request -> materno;
+        $persona -> save();
+        return redirect() -> route('personas.index');
     }
 
     /**
