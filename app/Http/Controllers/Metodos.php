@@ -22,7 +22,8 @@ class Metodos extends Controller
      */
     public function create()
     {
-        //
+        $titulo = 'Agregar Persona';
+        return view('agregar', compact('titulo'));
     }
 
     /**
@@ -33,7 +34,12 @@ class Metodos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $persona = new Categoria();
+        $persona->nombre = $request->nombre;
+        $persona->paterno = $request->paterno;
+        $persona->materno = $request->materno;
+        $persona->save();
+        return redirect()->route('personas.index');
     }
 
     /**
@@ -78,6 +84,8 @@ class Metodos extends Controller
      */
     public function destroy($id)
     {
-        //
+        $persona = Categoria::find($id);
+        $persona->delete();
+        return redirect()->route('personas.index');
     }
 }

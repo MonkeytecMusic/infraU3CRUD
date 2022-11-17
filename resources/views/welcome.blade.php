@@ -5,16 +5,17 @@
             <div class="col">
                 <div class="card m-4">
                     <div class="card-header">
-                        <h2 class="text-center">Crud con laravel 8 y GitHub</h2>
+                        <h1 class="text-center">Crud con Laravel 8 y GitHub</h1>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover table-sm">
-                            <a href="" class="btn btn-primary">Agregar nueva persona</a>
+                        <a href="{{ route('personas.create') }}" class="btn btn-primary">Agregar nueva persona</a>
+                        <p></p>
+                        <table class="table table-sm table-bordered border-dark table-hover text-center">
                             <thead>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Apellido paterno</th>
-                                <th>Apellido materno</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </thead>
@@ -29,7 +30,7 @@
                                             <a href="" class="btn btn-warning">Editar</a>
                                         </td>
                                         <td>
-                                            <form action="" method="post">
+                                            <form action="{{ route('personas.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger">Eliminar</button>

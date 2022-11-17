@@ -9,4 +9,7 @@ class Categoria extends Model
 {
     use HasFactory;
     protected $table = 't_personas';
+    protected $primaryKey = 'id';
+    protected $filable = ['nombre'];
+    protected $hidden = ['created_at', 'updated_at'];
 }
